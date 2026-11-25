@@ -1,0 +1,44 @@
+psql:week-05/violations.sql:5: ERROR:  23502: null value in column "full_name" of relation "customer" violates not-null constraint
+AYRINTI:  Failing row contains (1, null, test@example.com).
+ŞEMA ADI:  public
+TABLO ADI:  customer
+SÜTUN ADI:  full_name
+YER:  ExecConstraints, execMain.c:2079
+INSERT 0 1
+psql:week-05/violations.sql:12: ERROR:  23505: duplicate key value violates unique constraint "uq_customer_email"
+AYRINTI:  Key (email)=(duplicate@example.com) already exists.
+ŞEMA ADI:  public
+TABLO ADI:  customer
+KISITLAMA ADI:  uq_customer_email
+YER:  _bt_check_unique, nbtinsert.c:673
+psql:week-05/violations.sql:16: ERROR:  23514: new row for relation "book" violates check constraint "chk_book_price"
+AYRINTI:  Failing row contains (1, Test Book, Test Author, -50.00, 10, active).
+ŞEMA ADI:  public
+TABLO ADI:  book
+KISITLAMA ADI:  chk_book_price
+YER:  ExecConstraints, execMain.c:2130
+psql:week-05/violations.sql:20: ERROR:  23514: new row for relation "book" violates check constraint "chk_book_stock"
+AYRINTI:  Failing row contains (2, Stock Test, Test Author, 100.00, -5, active).
+ŞEMA ADI:  public
+TABLO ADI:  book
+KISITLAMA ADI:  chk_book_stock
+YER:  ExecConstraints, execMain.c:2130
+psql:week-05/violations.sql:24: ERROR:  23514: new row for relation "book" violates check constraint "chk_book_status"
+AYRINTI:  Failing row contains (3, Status Test, Test Author, 100.00, 10, invalid).
+ŞEMA ADI:  public
+TABLO ADI:  book
+KISITLAMA ADI:  chk_book_status
+YER:  ExecConstraints, execMain.c:2130
+psql:week-05/violations.sql:33: ERROR:  23514: new row for relation "orders" violates check constraint "chk_orders_delivery_date"
+AYRINTI:  Failing row contains (1, 2, 2026-10-20, 2026-10-10).
+ŞEMA ADI:  public
+TABLO ADI:  orders
+KISITLAMA ADI:  chk_orders_delivery_date
+YER:  ExecConstraints, execMain.c:2130
+psql:week-05/violations.sql:37: ERROR:  23503: insert or update on table "orders" violates foreign key constraint "fk_orders_customer"
+AYRINTI:  Key (customer_id)=(999999) is not present in table "customer".
+ŞEMA ADI:  public
+TABLO ADI:  orders
+KISITLAMA ADI:  fk_orders_customer
+YER:  ri_ReportViolation, ri_triggers.c:2674
+DELETE 1
